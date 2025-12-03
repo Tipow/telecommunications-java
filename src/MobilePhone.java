@@ -1,25 +1,27 @@
-public class DeskPhone implements Telephone{
+public class MobilePhone implements Telephone{
     private String myNumber;
     private Boolean isRinging;
+    private Boolean isPowerOn;
 
-    public DeskPhone(String myNumber){
+    public MobilePhone(String myNumber){
         this.myNumber = myNumber;
     }
 
     @Override
     public void powerOn() {
-        System.out.println("Desk phone is always powered");
+        isPowerOn = true;
+        System.out.println("Phone power on");
     }
 
     @Override
     public void dail(String phoneNumber) {
-        System.out.println("Now ringing " + phoneNumber + " on deskphone");
+        System.out.println("Now ringing " + phoneNumber + " on mobile phone");
     }
 
     @Override
     public void answer() {
-        if (isRinging){
-            System.out.println("Answering the desk phone");
+        if (isRinging && isPowerOn){
+            System.out.println("Answering the mobile phone");
             isRinging = false;
         } else {
             System.out.println("Phone is not ringing");
@@ -28,7 +30,7 @@ public class DeskPhone implements Telephone{
 
     @Override
     public Boolean callPhone(String phoneNumber) {
-        if (phoneNumber.equals(myNumber)){
+        if (phoneNumber.equals(myNumber) && isPowerOn){
             isRinging = true;
             System.out.println("Phone is ringing");
         } else {
