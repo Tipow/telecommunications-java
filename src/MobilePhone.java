@@ -20,7 +20,7 @@ public class MobilePhone implements Telephone{
 
     @Override
     public void answer() {
-        if (isRinging && isPowerOn){
+        if (isRinging && isPowerOn) {
             System.out.println("Answering the mobile phone");
             isRinging = false;
         } else {
@@ -34,6 +34,7 @@ public class MobilePhone implements Telephone{
             isRinging = true;
             System.out.println("Phone is ringing");
         } else {
+            System.out.println("Either wrong number or phone is off");
             isRinging = false;
         }
         return isRinging;
